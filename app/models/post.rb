@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
 
   def title_does_not_contain_specified_words 
-    if !["Won't Believe","Secret","Top","Guess"].any? {|word| title.include?(word)}
+    if !title.nil? && !["Won't Believe","Secret","Top","Guess"].any? {|word| title.include?(word)}
       errors.add(:title, "Does not include the clickbait words.")
     end 
   end 
